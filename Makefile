@@ -1,11 +1,10 @@
-CXX = g++
+all: projet testcoord
 
-CXXFLAGS = -Wall -std=c++11 -g
+projet: main.cpp coord.cpp grille.cpp termite.cpp
+	 g++ -o projet main.cpp coord.cpp grille.cpp termite.cpp
 
+testcoord: testcoord.cpp coord.cpp
+	 g++ -o testcoord testcoord.cpp coord.cpp
 
-projet: projet.cpp coord.o
-testcoord: testcoord.cpp coord.o
-
-
-coord.o: coord.cpp coord.h
-
+clean:
+	rm -f *.o projet testcoord
